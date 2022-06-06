@@ -5,30 +5,33 @@ class TagsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: const [
-        Text(
-          "data",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-        Text(
-          "data",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-        Text(
-          "data",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-        Text(
-          "data",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-        Text(
-          "data",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: const [
+          Text(
+            "data",
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+          Text(
+            "data",
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+          Text(
+            "data",
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+          Text(
+            "data",
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+          Text(
+            "data",
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+        ],
+      ),
     );
   }
 }

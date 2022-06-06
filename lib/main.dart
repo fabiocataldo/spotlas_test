@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:spotlas_test/home_page.dart';
-import 'package:spotlas_test/utils/carousel.dart';
 
 void main() {
   runApp(const MyApp());

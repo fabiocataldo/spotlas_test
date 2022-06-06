@@ -6,8 +6,8 @@ class PartnerCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.grey,
-      elevation: 5,
+      color: Colors.transparent,
+      elevation: 0,
       child: SizedBox(
         width: double.infinity,
         // height: double.infinity,
