@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:spotlas_test/utils/caption_widget.dart';
-import 'package:spotlas_test/utils/carousel.dart';
-import 'package:spotlas_test/utils/partner_widget.dart';
 import 'package:spotlas_test/utils/stack_widget.dart';
 import 'package:spotlas_test/utils/tags_widget.dart';
 import 'package:spotlas_test/utils/toolbar_widget.dart';
-import 'package:spotlas_test/utils/user_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -23,7 +18,7 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.white,
-          title: Text(
+          title: const Text(
             "Feed",
             style: TextStyle(color: Colors.black),
           ),
