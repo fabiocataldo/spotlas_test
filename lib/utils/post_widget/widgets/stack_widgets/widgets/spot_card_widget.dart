@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:spotlas_test/models/data_model.dart';
 
-class PartnerCardWidget extends StatelessWidget {
-  const PartnerCardWidget({Key? key}) : super(key: key);
+class SpotCardWidget extends StatelessWidget {
+  final Spot spot;
+
+  const SpotCardWidget({Key? key, required this.spot}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +24,18 @@ class PartnerCardWidget extends StatelessWidget {
               color: Colors.grey[300],
             ),
           ),
-          title: const Text(
-            'Pachamama',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          title: Text(
+            spot.name,
+            style: const TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold),
           ),
           subtitle: Row(
-            children: const [
+            children: [
               Text(
-                'Peruvian',
-                style: TextStyle(color: Colors.white),
+                spot.types[0].name,
+                style: const TextStyle(color: Colors.white),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.fromLTRB(2, 0, 2, 0),
                 child: Text(
                   '•',
@@ -42,8 +46,8 @@ class PartnerCardWidget extends StatelessWidget {
                 ),
               ),
               Text(
-                'Marylebone',
-                style: TextStyle(color: Colors.white),
+                spot.location.display,
+                style: const TextStyle(color: Colors.white),
               ),
             ],
           ),

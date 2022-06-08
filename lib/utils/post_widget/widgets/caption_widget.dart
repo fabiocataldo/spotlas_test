@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:spotlas_test/models/data_model.dart';
 
 class CaptionWidget extends StatefulWidget {
-  final String text;
+  final Caption caption;
 
-  const CaptionWidget({Key? key, required this.text}) : super(key: key);
+  const CaptionWidget({Key? key, required this.caption}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
@@ -20,11 +21,12 @@ class _CaptionWidgetState extends State<CaptionWidget> {
   void initState() {
     super.initState();
 
-    if (widget.text.length > 150) {
-      firstHalf = widget.text.substring(0, 100);
-      secondHalf = widget.text.substring(101, widget.text.length);
+    if (widget.caption.text.length > 150) {
+      firstHalf = widget.caption.text.substring(0, 100);
+      secondHalf =
+          widget.caption.text.substring(101, widget.caption.text.length);
     } else {
-      firstHalf = widget.text;
+      firstHalf = widget.caption.text;
       secondHalf = "";
     }
   }
