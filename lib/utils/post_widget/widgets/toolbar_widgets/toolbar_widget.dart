@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'likebutton_widget.dart';
 
 class ToolbarWidget extends StatelessWidget {
   const ToolbarWidget({Key? key}) : super(key: key);
@@ -18,10 +19,7 @@ class ToolbarWidget extends StatelessWidget {
             AssetImage("assets/images/comment_icon.png"),
             color: Colors.black,
           ),
-          ImageIcon(
-            AssetImage("assets/images/heart_icon.png"),
-            color: Colors.black,
-          ),
+          LikeButtonWidget(),
           ImageIcon(
             AssetImage("assets/images/send_icon.png"),
             color: Colors.black,
