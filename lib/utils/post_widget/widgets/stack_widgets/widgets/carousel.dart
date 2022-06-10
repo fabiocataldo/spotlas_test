@@ -11,6 +11,7 @@ class CarouselWidget extends StatelessWidget {
     return Builder(
       builder: (context) {
         final double height = MediaQuery.of(context).size.height;
+        final double width = MediaQuery.of(context).size.width;
         return CarouselSlider(
           options: CarouselOptions(
             enableInfiniteScroll: false,
@@ -24,8 +25,9 @@ class CarouselWidget extends StatelessWidget {
               .map((item) => Center(
                       child: Image.network(
                     item,
-                    // fit: BoxFit.fitWidth,
+                    fit: BoxFit.cover,
                     height: height,
+                    width: width,
                   )))
               .toList(),
         );

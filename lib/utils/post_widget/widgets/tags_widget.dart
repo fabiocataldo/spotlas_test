@@ -9,15 +9,21 @@ class TagsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Container(
+      padding: const EdgeInsets.all(8.0),
+      child: SizedBox(
         height: 30,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: posttags.length,
           itemBuilder: (context, index) {
             final posttag = posttags[index];
-            return Text(posttag.name);
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              child: Text(
+                posttag.name,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            );
           },
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotlas_test/themes/themes.dart';
 import 'package:spotlas_test/views/home_page.dart';
 
 void main() {
@@ -14,10 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomePage(),
+      theme: CustomTheme.customTheme,
+      home: const HomePage(),
     );
   }
 }

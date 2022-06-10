@@ -11,50 +11,26 @@ class SpotCardWidget extends StatelessWidget {
     return Card(
       color: Colors.transparent,
       elevation: 0,
-      child: SizedBox(
-        width: double.infinity,
-        // height: double.infinity,
-        child: ListTile(
-          leading: Container(
-            width: 50,
-            height: 50,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.white, width: 3),
-              shape: BoxShape.circle,
-              color: Colors.grey[300],
-            ),
-          ),
-          title: Text(
-            spot.name,
-            style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          subtitle: Row(
-            children: [
-              Text(
-                spot.types[0].name,
-                style: const TextStyle(color: Colors.white),
-              ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(2, 0, 2, 0),
-                child: Text(
-                  '•',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Text(
-                spot.location.display,
-                style: const TextStyle(color: Colors.white),
-              ),
-            ],
-          ),
-          trailing: const ImageIcon(
-            AssetImage("assets/images/star_icon.png"),
-            color: Colors.white,
-          ),
+      child: ListTile(
+        leading: CircleAvatar(
+            radius: 30,
+            backgroundColor: Colors.black,
+            child: CircleAvatar(
+              radius: 28,
+              backgroundImage: NetworkImage(spot.logo.url),
+            )),
+        title: Text(spot.name, style: Theme.of(context).textTheme.headline1),
+        subtitle: Row(
+          children: [
+            Text("${spot.types[0].name} • ",
+                style: Theme.of(context).textTheme.headline1),
+            Text(spot.location.display,
+                style: Theme.of(context).textTheme.headline1),
+          ],
+        ),
+        trailing: const ImageIcon(
+          AssetImage("assets/images/star_icon.png"),
+          color: Colors.white,
         ),
       ),
     );

@@ -3,8 +3,10 @@ import 'package:spotlas_test/models/data_model.dart';
 
 class CaptionWidget extends StatefulWidget {
   final Caption caption;
+  final Author author;
 
-  const CaptionWidget({Key? key, required this.caption}) : super(key: key);
+  const CaptionWidget({Key? key, required this.caption, required this.author})
+      : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
@@ -21,10 +23,10 @@ class _CaptionWidgetState extends State<CaptionWidget> {
   void initState() {
     super.initState();
 
-    if (widget.caption.text.length > 150) {
-      firstHalf = widget.caption.text.substring(0, 100);
+    if (widget.caption.text.length > 120) {
+      firstHalf = (widget.caption.text.substring(0, 130));
       secondHalf =
-          widget.caption.text.substring(101, widget.caption.text.length);
+          widget.caption.text.substring(131, widget.caption.text.length);
     } else {
       firstHalf = widget.caption.text;
       secondHalf = "";
@@ -33,32 +35,57 @@ class _CaptionWidgetState extends State<CaptionWidget> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: unnecessary_new
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-      child: secondHalf.isEmpty
-          ? Text(firstHalf)
-          : Column(
-              children: <Widget>[
-                Text(flag ? ("$firstHalf...") : (firstHalf + secondHalf)),
-                InkWell(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: <Widget>[
-                      Text(
-                        flag ? "more" : "less",
-                        style: const TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                  onTap: () {
-                    setState(() {
-                      flag = !flag;
-                    });
-                  },
+    return Padding(
+      padding: const EdgeInsets.all(2.0),
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 8.0,
+          vertical: 8.0,
+        ),
+        child: secondHalf.isEmpty
+            ? Text.rich(TextSpan(children: [
+                TextSpan(
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  text: "${widget.author.username} ",
                 ),
-              ],
-            ),
+                TextSpan(text: firstHalf)
+              ]))
+            : Column(
+                children: <Widget>[
+                  Text.rich(flag
+                      ? TextSpan(children: [
+                          TextSpan(
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
+                              text: "${widget.author.username} "),
+                          TextSpan(text: "$firstHalf..."),
+                        ])
+                      : TextSpan(children: [
+                          TextSpan(
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
+                              text: "${widget.author.username} "),
+                          TextSpan(text: firstHalf + secondHalf),
+                        ])),
+                  InkWell(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          flag ? "more" : "less",
+                          style: const TextStyle(color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                    onTap: () {
+                      setState(() {
+                        flag = !flag;
+                      });
+                    },
+                  ),
+                ],
+              ),
+      ),
     );
   }
 }

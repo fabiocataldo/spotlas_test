@@ -13,17 +13,17 @@ class UserCardWidget extends StatelessWidget {
       elevation: 0,
       child: ListTile(
         leading: CircleAvatar(
-          backgroundImage: NetworkImage(author.photoUrl),
+          radius: 30,
+          backgroundColor: Colors.pink,
+          child: CircleAvatar(
+            radius: 25,
+            backgroundImage: NetworkImage(author.photoUrl),
+          ),
         ),
-        title: Text(
-          author.username,
-          style:
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-        subtitle: Text(
-          author.fullName,
-          style: const TextStyle(color: Colors.white),
-        ),
+        title:
+            Text(author.username, style: Theme.of(context).textTheme.headline1),
+        subtitle:
+            Text(author.fullName, style: Theme.of(context).textTheme.headline1),
         trailing: const ImageIcon(
           AssetImage("assets/images/options_icon.png"),
           color: Colors.white,
